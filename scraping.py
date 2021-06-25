@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup as soup
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import datetime as dt
+import time
 
 def scrape_all():
     # Initiate headless driver for deployment
@@ -21,7 +22,8 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
-        "last_modified": dt.datetime.now()
+        "last_modified": dt.datetime.now(),
+        "hemispheres": mars_hemispheres(browser)
     }
 
     # Stop webdriver and return data
@@ -103,6 +105,66 @@ def mars_facts():
 
     # Convert dataframe into HTML format, add bootstrap
     return df.to_html(classes="table table-striped")
+
+def mars_hemispheres(browser):
+    # Use browser to visit the URL 
+    url = 'https://marshemispheres.com/'
+    browser.visit(url)
+
+    # Parse the resulting html with soup
+    html = browser.html
+    link_soup = soup(html, 'html.parser')
+
+    # Create a list to hold the images and titles.
+    image_urls = []
+    results = link_soup.find_all('div', class_ = 'item')
+    for result in results:
+        # Retreive image urls
+        link = result.find('a', class_='itemLink product-item')['href']
+        # Create image url by appending to the base url
+        image_url = f'https://marshemispheres.com/{link}'
+        image_urls.append(image_url)
+    
+    # Create a list to hold the images and titles.Step 2
+    hemisphere_image_urls = []
+
+    # Looping to get img urls
+    for url in image_urls:
+        hemispheres = {}
+        # Visit the url using browser
+        browser.visit(url)
+
+        # Click on toggle open button
+        button = browser.find_by_id("wide-image-toggle")
+        button.click()
+
+        # Time lapse
+        time.sleep(1)
+
+        # Parse the resulting html with soup
+        html = browser.html
+        img_soup = soup(html, 'html.parser')
+
+        # Retrieve the titles for each hemisphere.
+        title = img_soup.find('h2', class_= "title").text
+        # Adding to dictionary
+        hemispheres["title"]= title
+
+        # Retreiving the rel image url
+        rel_img = img_soup.find('img',class_= "wide-image").get('src')
+
+        # The image url
+        img_url = f'https://marshemispheres.com/{rel_img}'
+        # adding to dictionary
+        hemispheres["img_url"]= img_url
+
+        # Appending dictionary to the empty list
+        hemisphere_image_urls.append(hemispheres)
+
+        # Going back to the browser
+        browser.back()
+
+        return hemisphere_image_urls
 
 if __name__ == "__main__":
 
