@@ -10,7 +10,7 @@ The purpose of this project is to obtain data from various websites through a pr
 
 Mars news was scraped from the url https://redplanetscience.com.  
 
-![Mars_news]()
+![Mars_news](Resources/Mars_news.png)
 
 Mars featured images were scrapped from the url 'https://spaceimages-mars.com.  
 
