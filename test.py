@@ -95,11 +95,10 @@ def mars_facts():
     # Add try/except for error handling
     try:
         # Use 'read_html' to scrape the facts table into a dataframe
-        df = pd.read_html("https://galaxyfacts-mars.com/")[0]
+        df = pd.read_html('https://galaxyfacts-mars.com')[0]
     
     except BaseException:
-        return None 
-        
+        return None
 
     # Assign columns and set index of dataframe
     
@@ -169,10 +168,14 @@ def mars_hemispheres(browser):
 
     return hemisphere_image_urls
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
     # If running as script, print scraped data
-    print(scrape_all())   
+    #print(scrape_all())   
+
+mars = scrape_all()
+for x,y in mars.items():
+    print(x,y)
 
 
 
