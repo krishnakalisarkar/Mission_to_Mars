@@ -10,11 +10,11 @@ The purpose of this project is to obtain data from various websites through a pr
 
 Mars news was scraped from the url https://redplanetscience.com.  
 
-![Mars_news]()
+![Mars_news](Resources/Mars_news.png)
 
 Mars featured images were scrapped from the url 'https://spaceimages-mars.com.  
 
-![Mars_images]()
+![Mars_images](Resources/Mars_images.png)
 
 Mars facts were scrapped from the url 'https://galaxyfacts-mars.com'. 
 
@@ -22,7 +22,7 @@ Mars facts were scrapped from the url 'https://galaxyfacts-mars.com'.
 
 Mars hemispheres .jpg images were scrapped from 'https://marshemispheres.com.
 
-![Mars_hemispheres]()
+![Mars_hemispheres](Resources/Mars_hemispheres.png)
 
 Once the data is scraped it is saved in an unstructured database called Mongodb. Flask is used to initiate scape and update the Mongodb database. Using index.html, a website is created called "Mission to Mars. The website has a button called "Scrape New Data", which when clicked updates the Mars News and Mars Featured images.
 
