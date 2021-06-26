@@ -63,7 +63,9 @@
         {% for hemisphere in mars.hemispheres %}
         <div class="col-md-3">
           <div class="thumbnail">
-            <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="...">
+            <a href={{hemisphere.img_url}}>
+              <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt={{hemisphere.title}}>
+            </a>
             <div class="caption" style="color: #080808;">
               <h3>{{hemisphere.title}}</h3>
             </div>
