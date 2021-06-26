@@ -14,7 +14,7 @@ Mars news was scraped from the url https://redplanetscience.com.
 
 Mars featured images were scrapped from the url 'https://spaceimages-mars.com.  
 
-![Mars_images]()
+![Mars_images](Resources/Mars_images.png)
 
 Mars facts were scrapped from the url 'https://galaxyfacts-mars.com'. 
 
