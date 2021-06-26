@@ -18,7 +18,7 @@ Mars featured images were scrapped from the url 'https://spaceimages-mars.com.
 
 Mars facts were scrapped from the url 'https://galaxyfacts-mars.com'. 
 
-![Mars_facts_table]()
+![Mars_facts_table](Resources/Mars_facts.png)
 
 Mars hemispheres .jpg images were scrapped from 'https://marshemispheres.com.
 
