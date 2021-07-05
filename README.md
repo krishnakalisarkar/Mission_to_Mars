@@ -28,5 +28,4 @@ Once the data is scraped it is saved in an unstructured database called Mongodb.
 
 ## Results:
 
-The web scrapping went successfully and all the news, images ,table of Mars facts and mars hemispheres were scrapped and saved in Mongo database. Using Flask to create a connection to the database, a website was created. The website can be accessed at *https://krishnakalisarkar.github.io/Mission_to_Mars/*
-
+The web scrapping went successfully and all the news, images ,table of Mars facts and mars hemispheres were scrapped and saved in Mongo database. Using Flask to create a connection to the database, a website was created.
